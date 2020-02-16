@@ -1,0 +1,40 @@
+#! /bin/sh
+set -e
+
+# source function library
+. /etc/init.d/functions
+
+# /etc/init.d/qmi-network: start and stop the QMI Network daemon
+
+export PATH="${PATH:+$PATH:}/usr/sbin:/sbin"
+
+case "$1" in
+  start)
+        echo "Starting QMI Network server: qmi-network"
+        /usr/bin/qmi_setup.sh start
+        echo "done."
+        ;;
+  stop)
+        echo -n "Stopping QMI Network server: qmi-network"
+        /usr/bin/qmi_setup.sh stop
+        echo "."
+        ;;
+  restart)
+        echo -n "Restarting QMI Network server: qmi-network"
+        /usr/bin/qmi_setup.sh stop
+        sleep 2
+        /usr/bin/qmi_setup.sh start
+        echo "."
+        ;;
+
+  status)
+        /usr/bin/qmi_setup.sh status
+        exit $?
+  ;;
+
+  *)
+        echo "Usage: /etc/init.d/qmi-network {start|stop|status|restart}"
+        exit 1
+esac
+
+exit 0
