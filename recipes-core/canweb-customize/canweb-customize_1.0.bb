@@ -20,6 +20,7 @@ SRC_URI = " \
     file://test.html \
     file://myapp.wsgi \
     file://canweb.ini \
+    file://Model3CAN.dbc \
 "
 
 LIC_FILES_CHKSUM = " \
@@ -33,8 +34,6 @@ INITSCRIPT_PARAMS_${PN} = "start 08 2 3 4 5 . stop 01 0 1 6 ."
 INITSCRIPT_NAME_${PN} = "qmi-network"
 
 do_install() {
- #       install -d ${D}${MY_DESTINATION}
-#        install -dm 0644  ${S}/* ${D}${MY_DESTINATION}
 	install -Dm 0644 ${WORKDIR}/bsdio.com-2019.chained.crt ${D}${sysconfdir}/apache2/bsdio.com-2019.chained.crt
 	install -Dm 0600 ${WORKDIR}/bsdio.com-2019.key ${D}${sysconfdir}/apache2/bsdio.com-2019.key
 
@@ -54,10 +53,9 @@ do_install() {
 	install -Dm 0755 ${WORKDIR}/myapp.wsgi ${D}/var/www/wsgi-scripts/myapp.wsgi
 	install -Dm 0644 ${WORKDIR}/canweb.ini ${D}/var/www/tesla.bsdio.com/app/canweb.ini
 
+	install -Dm 0644 ${WORKDIR}/Model3CAN.dbc ${D}/var/www/wsgi-scripts/Model3CAN.dbc
 }
 
 CONFFILES_${PN} += "${sysconfdir}/init.d/qmi-network ${sysconfdir}qmi-network.conf"
 
 PR = "r0"
-
-#FILES_${PN} += "${MY_DESTINATION}/*"

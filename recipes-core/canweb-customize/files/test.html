@@ -11,9 +11,10 @@
 
       evtSrc.onmessage = function(e) {
           console.log(e.data);
-          eventOutputContainer.innerHTML = e.data;
+          var obj = JSON.parse(e.data)
+          eventOutputContainer.innerHTML = obj.time;
       };
 
       </script>
     </body>
-  </html>
+</html>

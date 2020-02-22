@@ -1,0 +1,5 @@
+PREFERRED_VERSION_python-cantools = "33.1.1"
+PREFERRED_VERSION_python-bitstruct = "8.9.0"
+PREFERRED_VERSION_python-diskcache = "4.1.0"
+PREFERRED_VERSION_python-python-can = "3.3.2"
+PREFERRED_VERSION_python-textparser = "0.23.0"

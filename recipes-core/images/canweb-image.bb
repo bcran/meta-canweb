@@ -10,6 +10,7 @@ inherit core-image
 CORE_IMAGE_EXTRA_INSTALL = " \
 	ncurses bluez5 libqmi libmbim openvpn kernel-modules \
 	i2c-tools fbset evtest apache2 mod-wsgi canweb-customize python3-pip vim \
+	python-sse python-pybluez python-cantools \
 "
 
 IMAGE_INSTALL = "\

@@ -1,0 +1,1 @@
+PREFERRED_VERSION_python-sse = "1.2"
