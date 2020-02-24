@@ -20,7 +20,6 @@ SRC_URI = " \
     file://test.html \
     file://myapp.wsgi \
     file://canweb.ini \
-    file://Model3CAN.dbc \
 "
 
 LIC_FILES_CHKSUM = " \
@@ -52,8 +51,6 @@ do_install() {
 	install -Dm 0644 ${WORKDIR}/test.html ${D}/var/www/tesla.bsdio.com/htdocs/test.html
 	install -Dm 0755 ${WORKDIR}/myapp.wsgi ${D}/var/www/wsgi-scripts/myapp.wsgi
 	install -Dm 0644 ${WORKDIR}/canweb.ini ${D}/var/www/tesla.bsdio.com/app/canweb.ini
-
-	install -Dm 0644 ${WORKDIR}/Model3CAN.dbc ${D}/var/www/wsgi-scripts/Model3CAN.dbc
 }
 
 CONFFILES_${PN} += "${sysconfdir}/init.d/qmi-network ${sysconfdir}qmi-network.conf"
